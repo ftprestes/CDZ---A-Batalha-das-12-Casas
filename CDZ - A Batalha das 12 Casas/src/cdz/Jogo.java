@@ -97,18 +97,19 @@ public class Jogo {
     // nome   signo   vida   ataque   armadura
     private void createCavaleirosDeOuro() {
 
-        mu = new CavaleiroDeOuro("Mu", "Aries", 100, 40, 5, 1);
-        aldebaran = new CavaleiroDeOuro("Aldebaran", "Touro", 100, 40, 39, 1);
-        saga = new CavaleiroDeOuro("Saga", "Gêmeos", 100, 40, 54, 1);
-        mascara = new CavaleiroDeOuro("Mascara da Morte", "Câncer", 100, 40, 54, 1);
-        aioria = new CavaleiroDeOuro("Aioria", "Leão", 100, 40, 54, 1);
-        shaka = new CavaleiroDeOuro("Shaka", "Virgem", 100, 40, 54, 1);
-        dohko = new CavaleiroDeOuro("Dohko", "Libra", 100, 40, 54, 1);
-        milo = new CavaleiroDeOuro("Milo", "Escorpião", 100, 40, 54, 1);
-        aioros = new CavaleiroDeOuro("Aioros", "Sagitário", 100, 40, 54, 1);
-        shura = new CavaleiroDeOuro("Shura", "Capricórnio", 100, 40, 54, 1);
-        camus = new CavaleiroDeOuro("Camus", "Aquário", 100, 40, 54, 1);
-        afrodite = new CavaleiroDeOuro("Afrodite", "Peixes", 100, 40, 54, 1);
+        mu = new CavaleiroDeOuro("Mu", "Aries", 50, 24, 10, 30);
+        aldebaran = new CavaleiroDeOuro("Aldebaran", "Touro", 50, 25, 11, 32);
+        saga = new CavaleiroDeOuro("Saga", "Gêmeos", 100, 37, 12, 100);
+        mascara = new CavaleiroDeOuro("Mascara da Morte", "Câncer", 100, 28, 12, 33);
+        aioria = new CavaleiroDeOuro("Aioria", "Leão", 50, 28, 12, 35);
+        shaka = new CavaleiroDeOuro("Shaka", "Virgem", 50, 29, 14, 38);
+        dohko = new CavaleiroDeOuro("Dohko", "Libra", 60, 30, 15, 40);
+        milo = new CavaleiroDeOuro("Milo", "Escorpião", 60, 32, 15, 43);
+        aioros = new CavaleiroDeOuro("Aioros", "Sagitário", 60, 32, 16, 45);
+        shura = new CavaleiroDeOuro("Shura", "Capricórnio", 60, 32, 17, 47);
+        camus = new CavaleiroDeOuro("Camus", "Aquário", 70, 40, 18, 50);
+        afrodite = new CavaleiroDeOuro("Afrodite", "Peixes", 70, 35, 20, 60);
+        
     }
 
     // método createCavaleirosDePrata cria os Cavaleiros de Prata passando 
@@ -116,24 +117,24 @@ public class Jogo {
     // nome   tipo   vida   ataque   armadura   
     private void createCavaleirosDePrata() {
 
-        marin = new CavaleiroDePrata("Marin", "Àguia", 100, 40, 54, 1);
-        misty = new CavaleiroDePrata("Misty", "Lagarto", 100, 40, 54, 1);
-        babel = new CavaleiroDePrata("Babel", "Centauro", 100, 40, 54, 1);
-        jamian = new CavaleiroDePrata("Jamian", "Corvo", 100, 40, 54, 1);
-        algol = new CavaleiroDePrata("Algol", "Perceu", 100, 40, 54, 1);
-        algethi = new CavaleiroDePrata("Algethi", "Hércules", 100, 40, 54, 1);
-        dio = new CavaleiroDePrata("Dio", "Mosca", 100, 40, 54, 1);
-        sirius = new CavaleiroDePrata("Sirius", "Cão Maior", 100, 40, 54, 1);
-        ptolemy = new CavaleiroDePrata("Ptolemy", "Flecha", 100, 40, 54, 1);
-        orphee = new CavaleiroDePrata("Orphée", "Lira", 100, 40, 54, 1);
-
+        marin = new CavaleiroDePrata("Marin", "Àguia", 40, 17, 8, 20);
+        misty = new CavaleiroDePrata("Misty", "Lagarto", 40, 17, 8, 22);
+        babel = new CavaleiroDePrata("Babel", "Centauro", 40, 18, 8, 23);
+        jamian = new CavaleiroDePrata("Jamian", "Corvo", 40, 18, 9, 22);
+        algol = new CavaleiroDePrata("Algol", "Perceu", 40, 19, 9, 25);
+        algethi = new CavaleiroDePrata("Algethi", "Hércules", 40, 19, 8, 22);
+        dio = new CavaleiroDePrata("Dio", "Mosca", 40, 19, 9, 21);
+        sirius = new CavaleiroDePrata("Sirius", "Cão Maior", 40, 18, 9, 23);
+        ptolemy = new CavaleiroDePrata("Ptolemy", "Flecha", 40, 19, 7, 24);
+        orphee = new CavaleiroDePrata("Orphée", "Lira", 40, 19, 8, 25);
+        
     }
 
     private void createCavaleirosDeAco() {
 
-        sho = new CavaleiroDeAco("Sho", "Armadura do Céu", 30, 40, 54, 1);
-        daichi = new CavaleiroDeAco("Daichi", "Armadura da Terra", 30, 40, 54, 1);
-        usho = new CavaleiroDeAco("Ushô", "Armadura do Mar", 30, 40, 54, 1);
+        sho = new CavaleiroDeAco("Sho", "Armadura do Céu", 30, 15, 7, 13);
+        daichi = new CavaleiroDeAco("Daichi", "Armadura da Terra", 30, 16, 6, 15);
+        usho = new CavaleiroDeAco("Ushô", "Armadura do Mar", 30, 17, 6, 16);
     }
 
     private void createCasas() {
