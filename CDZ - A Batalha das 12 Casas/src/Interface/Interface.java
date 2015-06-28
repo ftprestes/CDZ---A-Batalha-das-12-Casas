@@ -71,49 +71,49 @@ public class Interface extends javax.swing.JFrame {
                 jLabel2.setLocation(160, 215);
                 break;
             case "escorpiao":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(190, 160);
                 break;
             case "sagitario":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(240, 110);
                 break;
             case "capricornio":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(120, 90);
                 break;
             case "aquario":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(225, 50);
                 break;
             case "peixes":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(160, 10);
                 break;
             case "saori":
-                jLabel2.setLocation(154, 422);
+                jLabel2.setLocation(225, 650);
                 break;
             case "acos":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(380, 600);
                 break;
             case "acos1":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(410, 530);
                 break;
             case "acos2":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(410, 653);
                 break;
             case "acos3":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(573, 610);
                 break;
             case "pratas":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(130, 600);
                 break;
             case "pratas1":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(115, 505);
                 break;
             case "pratas2":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(75, 660);
                 break;
             case "pratas3":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(20, 600);
                 break;
             case "mestre":
-                jLabel2.setLocation(50, 50);
+                jLabel2.setLocation(400, 15);
                 break;
         }
 

@@ -129,9 +129,9 @@ public class Cavaleiro extends Personagem{
     }
     public void removeArmaduraCavaleiro(){
         int armadura;
-        Item item = getItemArma();
+        Item item = getItemArmadura();
         armadura = getArmadura() - item.getArmadura();
-        setAtaque(armadura);
+        setArmadura(armadura);
         inventario.add(item);
     }
     
@@ -141,22 +141,6 @@ public class Cavaleiro extends Personagem{
             itens.append(item.getNome() + " ");   
         }
         return itens.toString();     
-    }
-    
-    public void checaCosmo(Personagem cavaleiro){
-        int ataqueCavaleiro = cavaleiro.getAtaque();
-        if (cavaleiro.getVida() < 100){
-            System.out.println("Você precisa encontrar seu Sétimo Sentido");
-            System.out.println("");
-            ataqueCavaleiro += 100; 
-            cavaleiro.setAtaque(ataqueCavaleiro);
-        }    
-        if (cavaleiro.getVida() < 50) {
-            System.out.println("Sétimo Sentido Encontrado, seu ataque foi aprimorado");
-            System.out.println("");
-             ataqueCavaleiro += 150; 
-             cavaleiro.setAtaque(ataqueCavaleiro);
-        }           
     }
     
     public void lutar(Personagem cavaleiro, Personagem oponente){
@@ -170,8 +154,7 @@ public class Cavaleiro extends Personagem{
         int moedasOponente = oponente.getMoedas();
         
         while(cavaleiro.getVida() > 0 && oponente.getVida() > 0){
-           
-            checaCosmo(cavaleiro);
+                    
             vidaOponente += armaduraOponente - ataqueCavaleiro; 
             if (ataqueCavaleiro > armaduraOponente)
                 oponente.setVida(vidaOponente);

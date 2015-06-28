@@ -15,8 +15,8 @@ public class Jogo {
     private Casa casaAtual;
 
     private Item espadaInicial, armaduraInicial, espada1, espada2, espada3, espada4, espada5,
-            espada6, espada7, espada8, espada9, armadura1, armadura2, armadura3, armadura4, armadura5,
-            armadura6, armadura7, armadura8, armadura9, pocao;
+            espada6, espada7, armadura1, armadura2, armadura3, armadura4, armadura5,
+            armadura6, armadura7, pocao;
 
     private CavaleiroDeOuro mu, aldebaran, saga, mascara, aioria, shaka,
             dohko, milo, aioros, shura, camus, afrodite;
@@ -72,9 +72,24 @@ public class Jogo {
     private void createItens() {
         espadaInicial = new Item("Espadinha", "+1 de ataque", 1, 1, 0, 0, 1);
         armaduraInicial = new Item("Armadurinha", "+1 de ataque", 1, 0, 1, 0, 2);
-        espada1 = new Item("Espada1", "+10 de ataque", 3, 10, 0, 0, 1);
-        armadura1 = new Item("Armadura1", "+7 de armadura", 3, 0, 7, 0, 2);
-        pocao = new Item("Pocao", "+10 de vida", 1, 0, 0, 10, 0);
+        
+        espada1 = new Item("Espada1", "+10 de ataque", 2, 3, 0, 0, 1);
+        espada2 = new Item("Espada2", "+10 de ataque", 3, 5, 0, 0, 1);
+        espada3 = new Item("Espada3", "+10 de ataque", 5, 8, 0, 0, 1);
+        espada4 = new Item("Espada4", "+10 de ataque", 7, 12, 0, 0, 1);
+        espada5 = new Item("Espada5", "+10 de ataque", 9, 15, 0, 0, 1);
+        espada6 = new Item("Espada6", "+10 de ataque", 12, 18, 0, 0, 1);
+        espada7 = new Item("Espada7", "+10 de ataque", 15, 21, 0, 0, 1);
+        
+        armadura1 = new Item("Armadura1", "+7 de armadura", 2, 0, 2, 0, 2);
+        armadura2 = new Item("Armadura2", "+7 de armadura", 3, 0, 4, 0, 2);
+        armadura3 = new Item("Armadura3", "+7 de armadura", 5, 0, 6, 0, 2);
+        armadura4 = new Item("Armadura4", "+7 de armadura", 7, 0, 8, 0, 2);
+        armadura5 = new Item("Armadura5", "+7 de armadura", 9, 0, 10, 0, 2);
+        armadura6 = new Item("Armadura6", "+7 de armadura", 12, 0, 12, 0, 2);
+        armadura7 = new Item("Armadura7", "+7 de armadura", 15, 0, 15, 0, 2);
+        
+        pocao = new Item("Pocao", "+20 de vida", 1, 0, 0, 20, 0);
     }
 
     // método createCavaleirosDeOuro cria os Cavaleiros de Ouro passando 
@@ -116,32 +131,32 @@ public class Jogo {
 
     private void createCavaleirosDeAco() {
 
-        sho = new CavaleiroDeAco("Sho", "Armadura do Céu", 100, 40, 54, 1);
-        daichi = new CavaleiroDeAco("Daichi", "Armadura da Terra", 100, 40, 54, 1);
-        usho = new CavaleiroDeAco("Ushô", "Armadura do Mar", 100, 40, 54, 1);
+        sho = new CavaleiroDeAco("Sho", "Armadura do Céu", 30, 40, 54, 1);
+        daichi = new CavaleiroDeAco("Daichi", "Armadura da Terra", 30, 40, 54, 1);
+        usho = new CavaleiroDeAco("Ushô", "Armadura do Mar", 30, 40, 54, 1);
     }
 
     private void createCasas() {
 
         //cria as casas
-        outside = new Casa("outside", " Foi aqui onde você começou o jogo, vá derrotar o Mestre!");
+        outside = new Casa("outside", "Foi aqui onde você começou o jogo, vá derrotar o Mestre!");
         corredorNorte = new Casa("corredorNorte", "Este é o caminho das 12 casas, devo seguir ao norte para derrotar o Mestre");
-        aries = new Casa("aries", " Casa de Àries, a primeira casa das 12");
-        touro = new Casa("touro", " Casa de Touro, a segunda casa das 12");
-        gemeos = new Casa("gemeos", " Casa de Gêmeos, a segunda casa das 12");
-        cancer = new Casa("cancer", " Casa de Câncer a terceira casa das 12");
-        leao = new Casa("leao", " Casa de Leão a quarta casa das 12");
-        virgem = new Casa("virgem", " Casa de Virgem a quinta casa das 12");
-        libra = new Casa("libra", " Casa de Libra a sexta casa das 12");
-        escorpiao = new Casa("escorpiao", " Casa de Escorpião a sétima casa das 12");
-        sagitario = new Casa("sagitario", " Casa de Sagitário a oitava casa das 12");
-        capricornio = new Casa("capricornio", "in the campus pub");
-        aquario = new Casa("aquario", "in the campus pub");
-        peixes = new Casa("peixes", "in the mothafuca");
-        saori = new Casa("saori", " Casa da Saori. Ela me traz paz. Devo seguir ao norte e derrotar o Mestre!");
-        acos = new Casa("acos", " Casa dos Cavaleiros de Aço. Devo derrotá-los antes de seguir em busca do Mestre");
-        acos1 = new Casa("acos1", " Casa do Cavaleiro de Aço Shô. Devo derrotá-lo antes de seguir em busca do Mestre");
-        acos2 = new Casa("acos2", " Casa do Cavaleiro de Aço Daichi. Devo derrotá-lo antes de seguir em busca do Mestre");
+        aries = new Casa("aries", "Casa de Àries, a primeira casa das 12");
+        touro = new Casa("touro", "Casa de Touro, a segunda casa das 12");
+        gemeos = new Casa("gemeos", "Casa de Gêmeos, a terceira casa das 12");
+        cancer = new Casa("cancer", "Casa de Câncer a quarta casa das 12");
+        leao = new Casa("leao", "Casa de Leão a quinta casa das 12");
+        virgem = new Casa("virgem", "Casa de Virgem a sexta casa das 12");
+        libra = new Casa("libra", "Casa de Libra a setima casa das 12");
+        escorpiao = new Casa("escorpiao", "Casa de Escorpião a oitava casa das 12");
+        sagitario = new Casa("sagitario", "Casa de Sagitário a nona casa das 12");
+        capricornio = new Casa("capricornio", "Casa de Capricornio a decima casa das 12");
+        aquario = new Casa("aquario", "Casa de Aquario a penultima casa das 12");
+        peixes = new Casa("peixes", "Casa de Sagitário a ultima casa das 12");
+        saori = new Casa("saori", "Casa da Saori. Ela me traz paz. Devo seguir ao norte e derrotar o Mestre!");
+        acos = new Casa("acos", "Vila dos Cavaleiros de Aço. Devo derrotá-los antes de seguir em busca do Mestre");
+        acos1 = new Casa("acos1", "Casa do Cavaleiro de Aço Shô. Devo derrotá-lo antes de seguir em busca do Mestre");
+        acos2 = new Casa("acos2", "Casa do Cavaleiro de Aço Daichi. Devo derrotá-lo antes de seguir em busca do Mestre");
         acos3 = new Casa("acos3", "Casa do Cavaleiro de Aço Ushô. Devo derrotá-los antes de seguir em busca do Mestre");
         pratas = new Casa("pratas", "Vila dos Cavaleiros de Prata. Devo derrotá-los antes de seguir em busca do Mestre");
         pratas1 = new Casa("pratas1", "Casa dos Cavaleiros de Prata do norte. Devo derrotá-los antes de seguir em busca do Mestre");
@@ -152,8 +167,8 @@ public class Jogo {
         // cria a saída das casas
         outside.setExit("norte", corredorNorte);
         outside.setExit("sul", saori);
-        outside.setExit("leste", pratas);
-        outside.setExit("oeste", acos);
+        outside.setExit("oeste", pratas);
+        outside.setExit("leste", acos);
 
         corredorNorte.setExit("sul", outside);
         corredorNorte.setExit("norte", aries);
@@ -192,20 +207,22 @@ public class Jogo {
         aquario.setExit("norte", peixes);
 
         peixes.setExit("sul", aquario);
-        peixes.setExit("norte", mestre);
+        peixes.setExit("leste", mestre);
 
-        mestre.setExit("sul", peixes);
+        mestre.setExit("oeste", peixes);
+        mestre.setExit("sul", saori);
 
         saori.setExit("norte", outside);
+        saori.setExit("sul", mestre);
 
-        pratas.setExit("leste", pratas3);
-        pratas.setExit("oeste", outside);
+        pratas.setExit("oeste", pratas3);
+        pratas.setExit("leste", outside);
         pratas.setExit("norte", pratas1);
         pratas.setExit("sul", pratas2);
 
         pratas1.setExit("sul", pratas);
         pratas2.setExit("norte", pratas);
-        pratas3.setExit("oeste", pratas);
+        pratas3.setExit("leste", pratas);
 
         acos.setExit("oeste", outside);
         acos.setExit("norte", acos1);
@@ -219,7 +236,7 @@ public class Jogo {
         //adiciona personagem na casa
         aries.addPersonagem(mu);
         touro.addPersonagem(aldebaran);
-        gemeos.addPersonagem(saga);
+        mestre.addPersonagem(saga);
         cancer.addPersonagem(mascara);
         leao.addPersonagem(aioria);
         virgem.addPersonagem(shaka);
@@ -248,10 +265,9 @@ public class Jogo {
 
         //adiciona item na casa
         saori.addItem(pocao);
-        aries.addItem(espada1);
-        touro.addItem(armadura1);
-        
-        
+        saori.addItem(espada1);
+        outside.addItem(pocao);
+        outside.addItem(armadura1);
         
         casaAtual = outside;  // start game outside
 
@@ -268,23 +284,23 @@ public class Jogo {
         switch (nome) {
             case "Seiya":
                 System.out.print("Seu cavaleiro é Seiya\n");
-                cavaleiro = new Cavaleiro("Seiya", 100, 33, 8, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Seiya", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             case "Shun":
                 System.out.print("Seu Cavaleiro é Shun\n");
-                cavaleiro = new Cavaleiro("Shun", 100, 25, 15, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Shun", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             case "Shiryu":
                 System.out.print("Seu Cavaleiro é Shiryu\n");
-                cavaleiro = new Cavaleiro("Shiryu", 100, 28, 15, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Shiryu", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             case "Hyoga":
                 System.out.print("Seu Cavaleiro é Hyoga\n");
-                cavaleiro = new Cavaleiro("Hyoga", 100, 30, 10, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Hyoga", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             case "Ikki":
                 System.out.print("Seu Cavaleiro é Ikki\n");
-                cavaleiro = new Cavaleiro("Ikki", 100, 35, 7, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Ikki", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             default:
                 System.out.println("Digite o nome do seu cavaleiro de bronze:");
