@@ -1,6 +1,7 @@
 package cdz;
 
 import Interface.Interface;
+import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ import java.util.Scanner;
  * @author prestes
  */
 public class Jogo {
-    
+
     private Cavaleiro cavaleiro;
     private Parser parser;
     private Casa casaAtual;
@@ -29,9 +30,9 @@ public class Jogo {
 
     private Casa outside, corredorNorte, aries, touro, gemeos, cancer, leao, virgem, libra, escorpiao,
             sagitario, capricornio, aquario, peixes, saori, acos, pratas, mestre, pratas1, pratas2, pratas3, acos1, acos2, acos3;
-    
+
     Interface i = new Interface();
-    
+
     public Jogo() {
         parser = new Parser();
     }
@@ -49,6 +50,14 @@ public class Jogo {
         System.out.println("os Cavaleiros de Bronze lutam para superar o Mestre do Santuário");
         System.out.println("e os poderosos Cavaleiros de Ouro, guardiões das 12 casas.");
         System.out.println("");
+        System.out.println("O jogo é livre, a opção de ir em qualquer casa é válida, porém");
+        System.out.println("é sugerido que o jogador se fortaleça para ir em busca de seu");
+        System.out.println("objetivo. O jogador se fortalece destruindo os inimigos e pegando");
+        System.out.println("os itens das casas.");
+        System.out.println("Os cavaleiros de Aço ao leste são os mais vulneráveis, seguido dos cavaleiros");
+        System.out.println("de prata ao oeste e após os cavaleiros de ouro ao norte, os mais fortes.");
+        System.out.println("");
+        System.out.println("Após escolher seu cavaleiro, digite 'help' para conhecer suas opções.");
         System.out.println("Você deve escolher um cavaleiro para conquistar seu objetivo.");
         System.out.println("Seiya - Shun - Shiryu - Ikki - Hyoga");
         System.out.println("Digite o nome do seu cavaleiro de bronze:");
@@ -70,26 +79,26 @@ public class Jogo {
     // nome   descricao    peso    ataque    armadura    vida   tipo
     // tipo 0 = poção, tipo  1 = arma, tipo 2 = armadura 
     private void createItens() {
-        espadaInicial = new Item("Espadinha", "+1 de ataque", 1, 1, 0, 0, 1);
-        armaduraInicial = new Item("Armadurinha", "+1 de ataque", 1, 0, 1, 0, 2);
-        
-        espada1 = new Item("Espada1", "+10 de ataque", 2, 3, 0, 0, 1);
-        espada2 = new Item("Espada2", "+10 de ataque", 3, 5, 0, 0, 1);
-        espada3 = new Item("Espada3", "+10 de ataque", 5, 8, 0, 0, 1);
-        espada4 = new Item("Espada4", "+10 de ataque", 7, 12, 0, 0, 1);
-        espada5 = new Item("Espada5", "+10 de ataque", 9, 15, 0, 0, 1);
-        espada6 = new Item("Espada6", "+10 de ataque", 12, 18, 0, 0, 1);
-        espada7 = new Item("Espada7", "+10 de ataque", 15, 21, 0, 0, 1);
-        
-        armadura1 = new Item("Armadura1", "+7 de armadura", 2, 0, 2, 0, 2);
-        armadura2 = new Item("Armadura2", "+7 de armadura", 3, 0, 4, 0, 2);
-        armadura3 = new Item("Armadura3", "+7 de armadura", 5, 0, 6, 0, 2);
-        armadura4 = new Item("Armadura4", "+7 de armadura", 7, 0, 8, 0, 2);
-        armadura5 = new Item("Armadura5", "+7 de armadura", 9, 0, 10, 0, 2);
-        armadura6 = new Item("Armadura6", "+7 de armadura", 12, 0, 12, 0, 2);
-        armadura7 = new Item("Armadura7", "+7 de armadura", 15, 0, 15, 0, 2);
-        
-        pocao = new Item("Pocao", "+20 de vida", 1, 0, 0, 20, 0);
+        espadaInicial = new Item("Espadinha", "+0 de ataque", 1, 0, 0, 0, 1);
+        armaduraInicial = new Item("Armadurinha", "+0 de ataque", 1, 0, 0, 0, 2);
+
+        espada1 = new Item("Espada1", "+3 de ataque", 2, 3, 0, 0, 1);
+        espada2 = new Item("Espada2", "+5 de ataque", 3, 5, 0, 0, 1);
+        espada3 = new Item("Espada3", "+8 de ataque", 5, 8, 0, 0, 1);
+        espada4 = new Item("Espada4", "+12 de ataque", 7, 12, 0, 0, 1);
+        espada5 = new Item("Espada5", "+15 de ataque", 9, 15, 0, 0, 1);
+        espada6 = new Item("Espada6", "+18 de ataque", 12, 18, 0, 0, 1);
+        espada7 = new Item("Espada7", "+21 de ataque", 15, 21, 0, 0, 1);
+
+        armadura1 = new Item("Armadura1", "+2 de armadura", 2, 0, 2, 0, 2);
+        armadura2 = new Item("Armadura2", "+4 de armadura", 3, 0, 4, 0, 2);
+        armadura3 = new Item("Armadura3", "+6 de armadura", 5, 0, 6, 0, 2);
+        armadura4 = new Item("Armadura4", "+8 de armadura", 7, 0, 8, 0, 2);
+        armadura5 = new Item("Armadura5", "+10 de armadura", 9, 0, 10, 0, 2);
+        armadura6 = new Item("Armadura6", "+12 de armadura", 12, 0, 12, 0, 2);
+        armadura7 = new Item("Armadura7", "+15 de armadura", 15, 0, 15, 0, 2);
+
+        pocao = new Item("Pocao", "+20 de vida", 4, 0, 0, 20, 0);
     }
 
     // método createCavaleirosDeOuro cria os Cavaleiros de Ouro passando 
@@ -109,7 +118,7 @@ public class Jogo {
         shura = new CavaleiroDeOuro("Shura", "Capricórnio", 60, 32, 17, 47);
         camus = new CavaleiroDeOuro("Camus", "Aquário", 70, 40, 18, 50);
         afrodite = new CavaleiroDeOuro("Afrodite", "Peixes", 70, 35, 20, 60);
-        
+
     }
 
     // método createCavaleirosDePrata cria os Cavaleiros de Prata passando 
@@ -127,7 +136,7 @@ public class Jogo {
         sirius = new CavaleiroDePrata("Sirius", "Cão Maior", 40, 18, 9, 23);
         ptolemy = new CavaleiroDePrata("Ptolemy", "Flecha", 40, 19, 7, 24);
         orphee = new CavaleiroDePrata("Orphée", "Lira", 40, 19, 8, 25);
-        
+
     }
 
     private void createCavaleirosDeAco() {
@@ -269,14 +278,36 @@ public class Jogo {
         saori.addItem(espada1);
         outside.addItem(pocao);
         outside.addItem(armadura1);
-        
+        acos1.addItem(espada2);
+        acos2.addItem(armadura2);
+        pratas2.addItem(espada3);
+        pratas3.addItem(armadura3);
+        touro.addItem(espada4);
+        aries.addItem(armadura4);
+        gemeos.addItem(pocao);
+        leao.addItem(armadura5);
+        virgem.addItem(espada5);
+        escorpiao.addItem(espada6);
+        sagitario.addItem(armadura6);
+        aquario.addItem(armadura7);
+        peixes.addItem(espada7);
+        mestre.addItem(pocao);
+        acos.addItem(pocao);
+        pratas.addItem(pocao);
+        pratas1.addItem(pocao);
+        corredorNorte.addItem(pocao);
+        touro.addItem(pocao);
+        virgem.addItem(pocao);
+        sagitario.addItem(pocao);
+        peixes.addItem(pocao);
+
         casaAtual = outside;  // start game outside
 
     }
 
-     // método createCavaleiro cria o cavaleiro passando como parâmetro 
+    // método createCavaleiro cria o cavaleiro passando como parâmetro 
     // suas características na seguinte ordem:
-    // nome    vida     ataque    armadura    limiteDePeso    pesoMochila    moedas
+    // nome   level    vida     ataque    armadura    limiteDePeso    pesoMochila    moedas
     public void createCavaleiro() {
         String nome;
         Scanner input = new Scanner(System.in);
@@ -285,23 +316,23 @@ public class Jogo {
         switch (nome) {
             case "Seiya":
                 System.out.print("Seu cavaleiro é Seiya\n");
-                cavaleiro = new Cavaleiro("Seiya", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Seiya", 1, 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             case "Shun":
                 System.out.print("Seu Cavaleiro é Shun\n");
-                cavaleiro = new Cavaleiro("Shun", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Shun", 1, 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             case "Shiryu":
                 System.out.print("Seu Cavaleiro é Shiryu\n");
-                cavaleiro = new Cavaleiro("Shiryu", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Shiryu", 1, 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             case "Hyoga":
                 System.out.print("Seu Cavaleiro é Hyoga\n");
-                cavaleiro = new Cavaleiro("Hyoga", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Hyoga", 1, 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             case "Ikki":
                 System.out.print("Seu Cavaleiro é Ikki\n");
-                cavaleiro = new Cavaleiro("Ikki", 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
+                cavaleiro = new Cavaleiro("Ikki", 1, 100, 20, 7, 100, 0, 0, espadaInicial, armaduraInicial);
                 break;
             default:
                 System.out.println("Digite o nome do seu cavaleiro de bronze:");
@@ -357,6 +388,18 @@ public class Jogo {
         System.out.println();
         System.out.println("Seus Comandos são:");
         parser.showCommands();
+        System.out.println();
+        System.out.println("help - mostra os comandos e suas funções.");
+        System.out.println("go - vai na direção indicada (se for uma saída existente).");
+        System.out.println("quit - termina o jogo.");
+        System.out.println("cavaleiro - mostra o estado atual do cavaleiro.");
+        System.out.println("olhar - olha os itens e inimigos da casa atual.");
+        System.out.println("atacar - ataca o inimigo digitado (ele deve estar na casa).");
+        System.out.println("inimigos - mostra o estado atual dos inimigos da casa atual.");
+        System.out.println("pegar - pega o item indicado e coloca no inventario.");
+        System.out.println("usar - usa o item do inventario indicado.");
+        System.out.println("soltar - solta na casa atual o item indicado.");
+        
     }
 
     private void goCasa(Command command) {
@@ -377,6 +420,8 @@ public class Jogo {
             casaAtual = nextRoom;
             i.goIconCavaleiro(casaAtual);
             System.out.println(casaAtual.getLongDescription());
+            if (casaAtual == gemeos)
+                System.out.println("Onde está Saga? O cavaleiro da casa de Gêmeos");
         }
     }
 
@@ -405,9 +450,11 @@ public class Jogo {
             System.out.println("Você tem certeza que é esse o nome?");
         } else {
             cavaleiro.lutar(cavaleiro, inimigo);
-            cavaleiro.imprimir();
             casaAtual.removeCharacter(name);
-
+            if (casaAtual == mestre) {
+                System.out.println("PARABÉNS, VOCE GANHOU O JOGO!");
+                exit(0);
+            }
         }
     }
 
@@ -429,6 +476,7 @@ public class Jogo {
         } else {
             cavaleiro.adicionaItem(item);
             casaAtual.removeItem(name);
+            System.out.println("O item foi adicionado ao inventário!");
         }
     }
 
@@ -449,7 +497,7 @@ public class Jogo {
         } else {
             cavaleiro.removeItem(item);
             casaAtual.addItem(item);
-
+            System.out.println("O item foi jogado no chão");
         }
     }
 
@@ -476,15 +524,14 @@ public class Jogo {
                 cavaleiro.removeArmaduraCavaleiro();
                 cavaleiro.botaArmaduraCavaleiro(item);
                 System.out.println("Novo item equipado");
-                
+
             }
             if (item.getTipo() == 0) {
                 cavaleiro.botaPocaoCavaleiro(item);
-                if (cavaleiro.getVida() >= 100){
+                if (cavaleiro.getVida() >= 100) {
                     System.out.println("Sua vida está cheia");
                     cavaleiro.setVida(100);
-                }
-                else{
+                } else {
                     System.out.println("Sua vida foi aumentada");
                 }
             }
@@ -504,7 +551,7 @@ public class Jogo {
         if (casaAtual == touro) {
             aldebaran.imprimir();
         }
-        if (casaAtual == gemeos) {
+        if (casaAtual == mestre) {
             saga.imprimir();
         }
         if (casaAtual == cancer) {
@@ -533,6 +580,30 @@ public class Jogo {
         }
         if (casaAtual == peixes) {
             afrodite.imprimir();
+        }
+        if (casaAtual == pratas1) {
+            marin.imprimir();
+            misty.imprimir();
+            babel.imprimir();
+        }
+        if (casaAtual == pratas2) {
+            jamian.imprimir();
+            algol.imprimir();
+            algethi.imprimir();
+        }
+        if (casaAtual == pratas3) {
+            sirius.imprimir();
+            ptolemy.imprimir();
+            orphee.imprimir();
+        }
+        if (casaAtual == acos1) {
+            sho.imprimir();
+        }
+        if (casaAtual == acos2) {
+            daichi.imprimir();
+        }
+        if (casaAtual == acos3) {
+            usho.imprimir();
         }
     }
 
