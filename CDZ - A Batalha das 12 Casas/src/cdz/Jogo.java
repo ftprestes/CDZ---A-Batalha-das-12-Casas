@@ -1,5 +1,6 @@
 package cdz;
 
+import Interface.Interface;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ import java.util.Scanner;
  * @author prestes
  */
 public class Jogo {
-
+    
     private Cavaleiro cavaleiro;
     private Parser parser;
     private Casa casaAtual;
@@ -28,7 +29,9 @@ public class Jogo {
 
     private Casa outside, corredorNorte, aries, touro, gemeos, cancer, leao, virgem, libra, escorpiao,
             sagitario, capricornio, aquario, peixes, saori, acos, pratas, mestre, pratas1, pratas2, pratas3, acos1, acos2, acos3;
-
+    
+    Interface i = new Interface();
+    
     public Jogo() {
         parser = new Parser();
     }
@@ -55,6 +58,7 @@ public class Jogo {
 
         createItens();
         createCavaleiro();
+        i.setIconCavaleiro(cavaleiro);
         createCavaleirosDeOuro();
         createCavaleirosDePrata();
         createCavaleirosDeAco();
@@ -120,30 +124,30 @@ public class Jogo {
     private void createCasas() {
 
         //cria as casas
-        outside = new Casa(" Foi aqui onde você começou o jogo, vá derrotar o Mestre!");
-        corredorNorte = new Casa("Este é o caminho das 12 casas, devo seguir ao norte para derrotar o Mestre");
-        aries = new Casa(" Casa de Àries, a primeira casa das 12");
-        touro = new Casa(" Casa de Touro, a segunda casa das 12");
-        gemeos = new Casa(" Casa de Gêmeos, a segunda casa das 12");
-        cancer = new Casa(" Casa de Câncer a terceira casa das 12");
-        leao = new Casa(" Casa de Leão a quarta casa das 12");
-        virgem = new Casa(" Casa de Virgem a quinta casa das 12");
-        libra = new Casa(" Casa de Libra a sexta casa das 12");
-        escorpiao = new Casa(" Casa de Escorpião a sétima casa das 12");
-        sagitario = new Casa(" Casa de Sagitário a oitava casa das 12");
-        capricornio = new Casa("in the campus pub");
-        aquario = new Casa("in the campus pub");
-        peixes = new Casa("in the mothafuca");
-        saori = new Casa(" Casa da Saori. Ela me traz paz. Devo seguir ao norte e derrotar o Mestre!");
-        acos = new Casa(" Casa dos Cavaleiros de Aço. Devo derrotá-los antes de seguir em busca do Mestre");
-        acos1 = new Casa(" Casa do Cavaleiro de Aço Shô. Devo derrotá-lo antes de seguir em busca do Mestre");
-        acos2 = new Casa(" Casa do Cavaleiro de Aço Daichi. Devo derrotá-lo antes de seguir em busca do Mestre");
-        acos3 = new Casa(" Casa do Cavaleiro de Aço Ushô. Devo derrotá-los antes de seguir em busca do Mestre");
-        pratas = new Casa("Vila dos Cavaleiros de Prata. Devo derrotá-los antes de seguir em busca do Mestre");
-        pratas1 = new Casa("Casa dos Cavaleiros de Prata do norte. Devo derrotá-los antes de seguir em busca do Mestre");
-        pratas2 = new Casa("Casa dos Cavaleiros de Prata do sul. Devo derrotá-los antes de seguir em busca do Mestre");
-        pratas3 = new Casa("Casa dos Cavaleiros de Prata do leste. Devo derrotá-los antes de seguir em busca do Mestre");
-        mestre = new Casa("Casa do Mestre, devo derrota-lo para consquistar meu objetivo");
+        outside = new Casa("outside", " Foi aqui onde você começou o jogo, vá derrotar o Mestre!");
+        corredorNorte = new Casa("corredorNorte", "Este é o caminho das 12 casas, devo seguir ao norte para derrotar o Mestre");
+        aries = new Casa("aries", " Casa de Àries, a primeira casa das 12");
+        touro = new Casa("touro", " Casa de Touro, a segunda casa das 12");
+        gemeos = new Casa("gemeos", " Casa de Gêmeos, a segunda casa das 12");
+        cancer = new Casa("cancer", " Casa de Câncer a terceira casa das 12");
+        leao = new Casa("leao", " Casa de Leão a quarta casa das 12");
+        virgem = new Casa("virgem", " Casa de Virgem a quinta casa das 12");
+        libra = new Casa("libra", " Casa de Libra a sexta casa das 12");
+        escorpiao = new Casa("escorpiao", " Casa de Escorpião a sétima casa das 12");
+        sagitario = new Casa("sagitario", " Casa de Sagitário a oitava casa das 12");
+        capricornio = new Casa("capricornio", "in the campus pub");
+        aquario = new Casa("aquario", "in the campus pub");
+        peixes = new Casa("peixes", "in the mothafuca");
+        saori = new Casa("saori", " Casa da Saori. Ela me traz paz. Devo seguir ao norte e derrotar o Mestre!");
+        acos = new Casa("acos", " Casa dos Cavaleiros de Aço. Devo derrotá-los antes de seguir em busca do Mestre");
+        acos1 = new Casa("acos1", " Casa do Cavaleiro de Aço Shô. Devo derrotá-lo antes de seguir em busca do Mestre");
+        acos2 = new Casa("acos2", " Casa do Cavaleiro de Aço Daichi. Devo derrotá-lo antes de seguir em busca do Mestre");
+        acos3 = new Casa("acos3", "Casa do Cavaleiro de Aço Ushô. Devo derrotá-los antes de seguir em busca do Mestre");
+        pratas = new Casa("pratas", "Vila dos Cavaleiros de Prata. Devo derrotá-los antes de seguir em busca do Mestre");
+        pratas1 = new Casa("pratas1", "Casa dos Cavaleiros de Prata do norte. Devo derrotá-los antes de seguir em busca do Mestre");
+        pratas2 = new Casa("pratas2", "Casa dos Cavaleiros de Prata do sul. Devo derrotá-los antes de seguir em busca do Mestre");
+        pratas3 = new Casa("pratas3", "Casa dos Cavaleiros de Prata do leste. Devo derrotá-los antes de seguir em busca do Mestre");
+        mestre = new Casa("mestre", "Casa do Mestre, devo derrota-lo para consquistar meu objetivo");
 
         // cria a saída das casas
         outside.setExit("norte", corredorNorte);
@@ -354,6 +358,7 @@ public class Jogo {
             System.out.println("Não há saídas por este lado");
         } else {
             casaAtual = nextRoom;
+            i.goIconCavaleiro(casaAtual);
             System.out.println(casaAtual.getLongDescription());
         }
     }
@@ -516,6 +521,7 @@ public class Jogo {
 
     public void play() {
         welcome();
+        i.setVisible(true);
         createJogo();
         entraLoopJogo();
         System.out.println("Thanks for playing");

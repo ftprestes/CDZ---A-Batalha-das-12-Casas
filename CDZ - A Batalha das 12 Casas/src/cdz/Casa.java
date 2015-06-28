@@ -20,7 +20,7 @@ import java.lang.StringBuffer;
  */
 
 public class Casa {
-    private String descricao;
+    private String descricao, nome;
     private HashMap<String, Casa> exits;        // stores exits of this room.
     private HashMap<String, Item> itens;        // stores exits of this room.
     private HashMap<String, Personagem> personagens;        // stores exits of this room.
@@ -31,11 +31,12 @@ public class Casa {
      * "an open court yard".
      * @param descricao The room's description.
      */
-    public Casa(String descricao){
+    public Casa(String nome, String descricao){
         this.descricao = descricao;
         exits = new HashMap<>();
         itens = new HashMap<>();
         personagens = new HashMap<>();
+        this.nome = nome;
     }
 
     /**
@@ -47,7 +48,11 @@ public class Casa {
     {
         exits.put(direction, neighbor);
     }
-
+    
+    public String getNome(){
+        return nome;
+    }
+    
     /**
      * @return The short description of the room
      * (the one that was defined in the constructor).
