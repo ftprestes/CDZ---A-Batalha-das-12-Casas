@@ -109,7 +109,7 @@ public class Jogo {
         mu = new CavaleiroDeOuro("Mu", "Aries", 50, 24, 10, 30);
         aldebaran = new CavaleiroDeOuro("Aldebaran", "Touro", 50, 25, 11, 32);
         saga = new CavaleiroDeOuro("Saga", "Gêmeos", 100, 37, 12, 100);
-        mascara = new CavaleiroDeOuro("Mascara da Morte", "Câncer", 100, 28, 12, 33);
+        mascara = new CavaleiroDeOuro("Mascara", "Câncer", 100, 28, 12, 33);
         aioria = new CavaleiroDeOuro("Aioria", "Leão", 50, 28, 12, 35);
         shaka = new CavaleiroDeOuro("Shaka", "Virgem", 50, 29, 14, 38);
         dohko = new CavaleiroDeOuro("Dohko", "Libra", 60, 30, 15, 40);
@@ -297,9 +297,12 @@ public class Jogo {
         pratas1.addItem(pocao);
         corredorNorte.addItem(pocao);
         touro.addItem(pocao);
+        leao.addItem(pocao);
         virgem.addItem(pocao);
         sagitario.addItem(pocao);
         peixes.addItem(pocao);
+        libra.addItem(pocao);
+        aquario.addItem(pocao);
 
         casaAtual = outside;  // start game outside
 
@@ -399,7 +402,7 @@ public class Jogo {
         System.out.println("pegar - pega o item indicado e coloca no inventario.");
         System.out.println("usar - usa o item do inventario indicado.");
         System.out.println("soltar - solta na casa atual o item indicado.");
-        
+
     }
 
     private void goCasa(Command command) {
@@ -420,8 +423,9 @@ public class Jogo {
             casaAtual = nextRoom;
             i.goIconCavaleiro(casaAtual);
             System.out.println(casaAtual.getLongDescription());
-            if (casaAtual == gemeos)
+            if (casaAtual == gemeos) {
                 System.out.println("Onde está Saga? O cavaleiro da casa de Gêmeos");
+            }
         }
     }
 

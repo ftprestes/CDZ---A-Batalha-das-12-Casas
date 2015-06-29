@@ -78,9 +78,9 @@ public class Cavaleiro extends Personagem {
     public void checaLevel() {
         if ((getCavaleirosAbatidos() >= 3) && (getCavaleirosAbatidos() % 3 == 0)) {
             setLevel(getLevel() + 1);
+            setAtaque(getAtaque() + 2);
+            setArmadura(getArmadura() + 1);
         }
-        setAtaque(getAtaque() + 3);
-        setArmadura(getArmadura() + 2);
     }
 
     public int getPesoMoedas() {
@@ -202,6 +202,7 @@ public class Cavaleiro extends Personagem {
         if (cavaleiro.getVida() > 0) {
             System.out.println("Você derrotou o inimigo e ganhou " + moedasOponente + " moedas");
             System.out.println("");
+            oponente.setVida(0);
             setCavaleirosAbatidos(getCavaleirosAbatidos() + 1);
             if (moedasOponente / 1000 + 1 + getPesoMochila() <= limiteDePeso) {
                 moedasCavaleiro += moedasOponente;
