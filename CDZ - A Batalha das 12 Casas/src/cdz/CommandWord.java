@@ -1,9 +1,6 @@
 package cdz;
 
 /**
- * Representations for all the valid command words for the game
- * along with a string in a particular language.
- * 
  * @author Michael Kolling and David J. Barnes
  * @version 2008.03.30
  */

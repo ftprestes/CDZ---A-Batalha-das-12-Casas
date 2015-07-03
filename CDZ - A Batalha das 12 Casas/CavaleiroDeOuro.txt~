@@ -1,0 +1,12 @@
+Mu Aries 50 24 10 30
+Aldebaran Touro 50 25 11 32 
+Saga Gêmeos 100 37 12 100 
+Mascara Câncer 100 28 12 33
+Aioria Leão 50 28 12 35
+Shaka Virgem 50 29 14 38 
+Dohko Libra 60 30 15 40
+Milo Escorpião 60 32 15 43
+        aioros = new CavaleiroDeOuro("Aioros", "Sagitário", 60, 32, 16, 45);
+        shura = new CavaleiroDeOuro("Shura", "Capricórnio", 60, 32, 17, 47);
+        camus = new CavaleiroDeOuro("Camus", "Aquário", 70, 40, 18, 50);
+        afrodite = new CavaleiroDeOuro("Afrodite", "Peixes", 70, 35, 20, 60);

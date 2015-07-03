@@ -2,8 +2,6 @@ package cdz;
 
 import static java.lang.System.exit;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.function.Consumer;
 
 /**
  *
@@ -11,20 +9,18 @@ import java.util.function.Consumer;
  */
 public class Cavaleiro extends Personagem {
 
-    private int limiteDePeso, level, pesoMochila, cavaleirosAbatidos;
+    private int limiteDePeso = 100, level = 0, pesoMochila = 0, cavaleirosAbatidos = 0;
     private ArrayList<Item> inventario;
     private Item itemArma, itemArmadura;
-
-    public Cavaleiro(String nome, int level, int vida, int ataque, int armadura, int limiteDePeso, int pesoMochila, int moedas, Item itemArma, Item itemArmadura) {
+    
+    //construtor do cavaleiro foi feito com o objetivo de ter a liberdade na hora de criação do cavaleiro
+    //de setar seus atributos com que eles tenham características diferentes
+    public Cavaleiro(String nome, int vida, int ataque, int armadura, int moedas, Item itemArma, Item itemArmadura) {
         super(nome, vida, ataque, armadura, moedas);
-        this.limiteDePeso = limiteDePeso;
         this.pesoMochila = pesoMochila;
         inventario = new ArrayList<Item>();
         this.itemArma = itemArma;
         this.itemArmadura = itemArmadura;
-        this.level = level;
-        this.cavaleirosAbatidos = cavaleirosAbatidos;
-
     }
 
     public int getLevel() {
@@ -75,6 +71,8 @@ public class Cavaleiro extends Personagem {
         this.itemArmadura = itemArmadura;
     }
 
+    //método que aumenta o level, armadura e ataque do cavaleiro caso ele mude seu level
+    //ele aumenta o level em +1 cada vez que derrota 3 inimigos
     public void checaLevel() {
         if ((getCavaleirosAbatidos() >= 3) && (getCavaleirosAbatidos() % 3 == 0)) {
             setLevel(getLevel() + 1);
@@ -83,13 +81,17 @@ public class Cavaleiro extends Personagem {
         }
     }
 
+    //método que faz o calculo e retorna o peso das moedas
     public int getPesoMoedas() {
         int pesoMoedas;
-        pesoMoedas = (getMoedas() / 1000) + 1;
+        if(getMoedas() == 0)
+            return 0;
+        else
+        pesoMoedas = (getMoedas() / 100) + 1;
         return pesoMoedas;
     }
 
-    //calcula o peso do inventario
+    //método que calcula e retorna o peso do inventario
     public int calcularPeso() {
         int carga = 0;
         for (Item item : inventario) {
@@ -100,7 +102,7 @@ public class Cavaleiro extends Personagem {
         return carga;
     }
 
-    //adiciona item no inventario
+    //método que adiciona um item no inventario
     public void adicionaItem(Item item) {
         int carga;
         if (calcularPeso() + item.getPeso() <= limiteDePeso) {
@@ -127,7 +129,7 @@ public class Cavaleiro extends Personagem {
         return null;
     }
 
-    //pega o item do inventario e coloca no cavaleiro
+    //método que pega o item do tipo arma do inventario e coloca no cavaleiro
     public void botaArmaCavaleiro(Item item) {
         int ataque;
         ataque = item.getAtaque() + getAtaque();
@@ -136,6 +138,7 @@ public class Cavaleiro extends Personagem {
         inventario.remove(item);
     }
 
+    //método que pega o item do tipo armadura do inventario e coloca no cavaleiro
     public void botaArmaduraCavaleiro(Item item) {
         int armadura;
         armadura = item.getArmadura() + getArmadura();
@@ -144,15 +147,15 @@ public class Cavaleiro extends Personagem {
         inventario.remove(item);
     }
 
+    //método que pega o item do tipo poção do inventario e coloca no cavaleiro
     public void botaPocaoCavaleiro(Item item) {
         int vida;
         vida = item.getVida() + getVida();
         setVida(vida);
         inventario.remove(item);
     }
-    //
 
-    //Remove a arma atual do cavaleiro e bota no inventario
+    //método que remove a arma atual do cavaleiro e bota no inventario
     public void removeArmaCavaleiro() {
         int ataque;
         Item item = getItemArma();
@@ -160,7 +163,8 @@ public class Cavaleiro extends Personagem {
         setAtaque(ataque);
         inventario.add(item);
     }
-
+    
+    //método que remove a armadura atual do cavaleiro e bota no inventario
     public void removeArmaduraCavaleiro() {
         int armadura;
         Item item = getItemArmadura();
@@ -168,7 +172,8 @@ public class Cavaleiro extends Personagem {
         setArmadura(armadura);
         inventario.add(item);
     }
-
+    
+    //método que mostra todos os itens do inventario do cavaleiro
     public String mostraInventario() {
         StringBuffer itens = new StringBuffer();
         for (Item item : inventario) {
@@ -176,7 +181,14 @@ public class Cavaleiro extends Personagem {
         }
         return itens.toString();
     }
-
+    
+    //método em que um cavaleiro luta com um oponente;
+    //o método trava as batalhas no while e só sai deste caso uma das vidas(cavaleiro ou oponente)
+    //seja menor ou igual a 0.
+    //caso o oponente seja o derrotado, o cavaleiro pega as moedas do oponente,
+    //o contador de cavaleleiros abatidos do cavaleiro é aumentado e é executado o método
+    //checaLevel para aumentar ou não o nível do cavaleiro
+    //caso o cavaleiro seja derrotado termina o jogo
     public void lutar(Personagem cavaleiro, Personagem oponente) {
         int vidaCavaleiro = cavaleiro.getVida();
         int vidaOponente = oponente.getVida();
@@ -204,20 +216,24 @@ public class Cavaleiro extends Personagem {
             System.out.println("");
             oponente.setVida(0);
             setCavaleirosAbatidos(getCavaleirosAbatidos() + 1);
+            checaLevel();
             if (moedasOponente / 1000 + 1 + getPesoMochila() <= limiteDePeso) {
                 moedasCavaleiro += moedasOponente;
                 cavaleiro.setMoedas(moedasCavaleiro);
-                checaLevel();
+                oponente.setMoedas(0);
             } else {
                 System.out.println("Seu inventário está lotado, se desfaça de itens para ganhar mais moedas");
             }
         } else {
+            cavaleiro.setVida(0);
+            cavaleiro.setMoedas(0);
             System.out.println("Você foi Derrotado");
             System.out.println("GAME OVER");
             exit(0);
         }
     }
-
+    
+    //método que imprime o estado atual do cavaleiro
     public String imprimir() {
         System.out.println("#########################################");
         System.out.println("# Tipo do Personagem: Cavaleiro de Bronze");

@@ -1,0 +1,17 @@
+Espadinha +0_de_ataque 1 0 1
+Armadurinha +0_de_ataque 1 0 2
+Espada1 +3_de_ataque 2 3 1
+Espada2 +5_de_ataque 3 5 1
+Espada3 +8_de_ataque 5 8 1
+Espada4 +12_de_ataque 7 12 1
+Espada5 +15_de_ataque 9 15 1
+Espada6 +18_de_ataque 12 18 1
+Espada7 +21_de_ataque 15 21 1
+Armadura1 +2_de_armadura 2 2 2
+Armadura2 +4_de_armadura 3 4 2
+Armadura3 +6_de_armadura 5 6 2
+Armadura4 +8_de_armadura 7 8 2
+Armadura5 +10_de_armadura 9 10 2
+Armadura6 +12_de_armadura 12 12 2
+Armadura7 +15_de_armadura 15 15 2
+Pocao +20_de_vida 4 20 0

@@ -7,31 +7,19 @@ import java.lang.StringBuffer;
 
 /**
  * Class Room - a room in an adventure game.
- *
- * This class is part of the "World of Zuul" application. 
- * "World of Zuul" is a very simple, text based adventure game.  
- *
- * A "Room" represents one location in the scenery of the game.  It is 
- * connected to other rooms via exits.  For each existing exit, the room 
- * stores a reference to the neighboring room.
- * 
  * @author  Michael Kolling and David J. Barnes
  * @version 2008.03.30
  */
 
 public class Casa {
     private String descricao, nome;
-    private HashMap<String, Casa> exits;        // stores exits of this room.
-    private HashMap<String, Item> itens;        // stores exits of this room.
-    private HashMap<String, Personagem> personagens;        // stores exits of this room.
+    private HashMap<String, Casa> exits;                // hashMap das saídas das casas
+    private HashMap<String, Item> itens;                // hashMap dos itens da casa
+    private HashMap<String, Personagem> personagens;    // hashMap dos personagens da casa.
 
-    /**
-     * Create a room described "description". Initially, it has
-     * no exits. "description" is something like "a kitchen" or
-     * "an open court yard".
-     * @param descricao The room's description.
-     */
+   //Cria uma casa passando como parâmetro o nome e a descrição
     public Casa(String nome, String descricao){
+        
         this.descricao = descricao;
         exits = new HashMap<>();
         itens = new HashMap<>();
@@ -39,35 +27,23 @@ public class Casa {
         this.nome = nome;
     }
 
-    /**
-     * Define an exit from this room.
-     * @param direction The direction of the exit.
-     * @param neighbor  The room to which the exit leads.
-     */
-    public void setExit(String direction, Casa neighbor) 
-    {
+    // método que adiciona uma saída na casa 
+    public void setExit(String direction, Casa neighbor) {
         exits.put(direction, neighbor);
     }
     
+    //método que retorna o nome da casa
     public String getNome(){
         return nome;
     }
     
-    /**
-     * @return The short description of the room
-     * (the one that was defined in the constructor).
-     */
-    public String getShortDescription()
-    {
+    //método que retorna a descrição da casa
+    public String getShortDescription(){
         return descricao;
     }
-
-    /**
-     * Return a description of the room in the form:
-     *     You are in the kitchen.
-     *     Exits: north west
-     * @return A long description of this room
-     */
+    
+    //método que retorna uma descição grande da casa
+    //contendo seus inimigos e saídas
     public String getLongDescription(){
         StringBuffer description = new StringBuffer();
     		description.append(this.descricao + ".\n");
@@ -86,11 +62,7 @@ public class Casa {
     		return description.toString();
     }
 
-    /**
-     * Return a string describing the room's exits, for example
-     * "Exits: north west".
-     * @return Details of the room's exits.
-     */
+    // retorna uma string com as saídas das casas
     private String getExitString(){
         String returnString = "Saídas: ";
         Set<String> keys = exits.keySet();
@@ -100,36 +72,38 @@ public class Casa {
         return returnString;
     }
 
-    /**
-     * Return the room that is reached if we go from this room in direction
-     * "direction". If there is no room in that direction, return null.
-     * @param direction The exit's direction.
-     * @return The room in the given direction.
-     */
+    //método que retorna a casa da direção passada como parâmetro
+    //caso não tenha saída na direção retorna null
     public Casa getExit(String direction){
         return exits.get(direction);
     }
     
+    // método que adiciona item na casa
     public void addItem(Item item){
     		itens.put(item.getNome(), item);
     }
     
+    //método que remove o item da casa
     public void removeItem(String itemName){
     		itens.remove(itemName);
     }
     
+    //método que adiciona um personagem na casa
     public void addPersonagem(Personagem personagem){
     		personagens.put(personagem.getNome(), personagem);
     }
     
-    public void removeCharacter(String name){
+    //método que remove um personagem da casa
+    public void removePersonagem(String name){
     		personagens.remove(name);
     }
-
-    public Personagem getCharacter(String name){
+    
+    //método que retorna o personagem da casa dando uma string nome como parâmetro
+    public Personagem getPersonagem(String name){
         return personagens.get(name);
     }
     
+    //método que retorna o Item da casa dando uma string nome como parâmetro
     public Item getItem(String name){
         return itens.get(name);
     }

@@ -1,0 +1,10 @@
+Marin Àguia 40 17 8 20 
+Misty Lagarto 40 17 8 22
+Babel Centauro 40 18 8 23
+Jamian Corvo 40 18 9 22
+Algol Perceu 40 19 9 25
+Algethi Hércules 40 19 8 22
+Dio Mosca 40 19 9 21
+Sirius Cão_Maior 40 18 9 23
+Ptolemy Flecha 40 19 7 24
+Orphée Lira 40 19 8 25
